@@ -1,8 +1,0 @@
-{
-  "name": "shadow-gpt",
-  "version": "1.0.0",
-  "type": "module",
-  "dependencies": {
-    "node-wit": "^7.0.1"
-  }
-}
