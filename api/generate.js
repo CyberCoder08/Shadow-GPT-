@@ -1,34 +1,30 @@
-
 export default async function handler(req, res) {
   const prompt = req.body.prompt;
-  const apiKey = process.env.BLACKBOX_API_KEY;
-
-  if (!apiKey) {
-    return res.status(500).json({ error: "Missing Blackbox API key." });
-  }
+  const apiKey = process.env.OPENROUTER_API_KEY;
 
   try {
-    const bbRes = await fetch("https://www.blackbox.ai/api/chat", {
+    const routerRes = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        Authorization: apiKey
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        messages: [{ role: "user", content: prompt }],
-        model: "gpt-3.5-turbo"
+        model: "openai/gpt-3.5-turbo", // or try "mistralai/mixtral-8x7b"
+        messages: [
+          { role: "system", content: "You are a helpful assistant." },
+          { role: "user", content: prompt }
+        ]
       })
     });
 
-    const data = await bbRes.json();
+    const data = await routerRes.json();
 
-    // Adjust based on Blackbox response format
-    const reply = data?.response || "🤖 No reply from Blackbox";
-
-    res.status(200).json({ text: reply });
-
+    res.status(200).json({
+      text: data?.choices?.[0]?.message?.content || "🤖 No response from OpenRouter"
+    });
   } catch (err) {
-    console.error("Blackbox API error:", err);
-    res.status(500).json({ error: "Blackbox request failed" });
+    console.error("💥 OpenRouter error:", err);
+    res.status(500).json({ error: "OpenRouter request failed." });
   }
 }
