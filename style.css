@@ -1,5 +1,3 @@
-/* style.css */
-
 body {
   background-color: #0f0f0f;
   color: #00ffc3;
@@ -10,24 +8,25 @@ body {
   justify-content: flex-start;
   height: 100vh;
   margin: 0;
-  padding: 20px;
-  overflow: hidden;
+  padding: 40px 20px;
+  box-sizing: border-box;
 }
 
 h2 {
-  margin-top: 40px;
   font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
   color: #00ffe0;
-  text-shadow: 0 0 8px #00ffc3;
+  text-shadow: 0 0 10px #00ffc3;
 }
 
 input {
-  width: 70%;
-  padding: 10px;
-  font-size: 1.1rem;
+  width: 100%;
+  max-width: 600px;
+  padding: 12px 15px;
+  font-size: 1rem;
   border: none;
-  border-radius: 5px;
-  margin-top: 20px;
+  border-radius: 8px;
   background-color: #1a1a1a;
   color: #00ffc3;
   box-shadow: 0 0 10px #00ffc3;
@@ -36,12 +35,12 @@ input {
 
 button {
   margin-top: 20px;
-  padding: 10px 25px;
+  padding: 12px 30px;
   font-size: 1rem;
   color: #0f0f0f;
   background: #00ffc3;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   box-shadow: 0 0 10px #00ffc3;
   transition: all 0.2s ease-in-out;
@@ -54,7 +53,8 @@ button:hover {
 
 pre {
   margin-top: 30px;
-  width: 90%;
+  width: 100%;
+  max-width: 600px;
   max-height: 300px;
   overflow-y: auto;
   background-color: #121212;
@@ -71,7 +71,6 @@ pre {
 pre::-webkit-scrollbar {
   width: 8px;
 }
-
 pre::-webkit-scrollbar-thumb {
   background-color: #00ffc3;
   border-radius: 4px;
