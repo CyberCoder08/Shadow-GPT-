@@ -7,7 +7,7 @@ async function sendPrompt() {
     const res = await fetch("https://api-inference.huggingface.co/models/EleutherAI/gpt-j-6B", {
       method: "POST",
       headers: {
-        "Authorization": "Bearer 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",
+        "Authorization": "Bearer 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",
         "Content-Type": "application/json"
       },
       body: JSON.stringify({ inputs: prompt })
