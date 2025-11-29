@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Grok 4.1 Client</title>
+    
+    <!-- External Libraries (Keep these for functionality) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Your Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-black text-gray-100 font-sans h-screen flex flex-col overflow-hidden">
+
+    <!-- Header -->
+    <header class="flex items-center justify-between px-4 py-3 border-b border-gray-800 bg-black/80 backdrop-blur-md sticky top-0 z-20">
+        <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-md bg-white text-black flex items-center justify-center font-bold text-xl font-mono">/</div>
+            <div>
+                <h1 class="font-bold text-lg leading-tight tracking-tight">Grok 4.1</h1>
+                <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                    <p class="text-[10px] uppercase tracking-wider text-gray-500 font-semibold">Fast Mode</p>
+                </div>
+            </div>
+        </div>
+        <div class="flex gap-2">
+            <button id="clear-btn" class="p-2 text-gray-400 hover:text-red-400 active:scale-95 transition-transform">
+                <i data-lucide="trash-2" class="w-5 h-5"></i>
+            </button>
+            <button id="settings-btn" class="p-2 text-gray-400 hover:text-white active:scale-95 transition-transform">
+                <i data-lucide="settings" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-[#111] border border-gray-800 rounded-2xl w-full max-w-sm p-6 shadow-2xl">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-bold flex items-center gap-2"><i data-lucide="key" class="w-5 h-5"></i> API Setup</h2>
+                <button id="close-settings-btn" class="text-gray-500 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-medium text-gray-400 mb-1 uppercase tracking-wide">OpenRouter API Key</label>
+                    <input type="password" id="api-key-input" placeholder="sk-or-v1-..." 
+                        class="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-white focus:outline-none transition-colors">
+                </div>
+                <button id="save-settings-btn" class="w-full bg-white text-black font-bold py-3 rounded-lg hover:bg-gray-200 active:scale-95 transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="check" class="w-4 h-4"></i> Save & Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Area -->
+    <main id="chat-container" class="flex-1 overflow-y-auto p-4 space-y-6 scroll-smooth">
+        <!-- Messages injected by app.js -->
+    </main>
+
+    <!-- Input Area -->
+    <footer class="bg-black/90 backdrop-blur-xl border-t border-gray-800 p-4 pb-6 sticky bottom-0 z-10">
+        <div class="max-w-3xl mx-auto relative group">
+            <textarea id="user-input" rows="1" placeholder="Ask Grok..." 
+                class="w-full bg-[#222] text-white rounded-2xl pl-5 pr-14 py-4 resize-none focus:outline-none focus:ring-1 focus:ring-gray-500 transition-all border border-transparent focus:border-gray-600 shadow-lg placeholder-gray-500"></textarea>
+            
+            <button id="send-btn" class="absolute right-2 top-2 bottom-2 p-2 bg-white text-black rounded-xl disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gray-200 active:scale-95 transition-all shadow-md aspect-square flex items-center justify-center">
+                <i data-lucide="send" class="w-5 h-5"></i>
+            </button>
+        </div>
+        <div class="text-center mt-3">
+            <p class="text-[10px] text-gray-600 font-medium">x-ai/grok-4.1-fast:free</p>
+        </div>
+    </footer>
+
+    <!-- Your Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
+
 
