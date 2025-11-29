@@ -1,0 +1,61 @@
+/* Since we are using Tailwind CDN in HTML, 
+   this CSS file is just for custom overrides and animations 
+*/
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #000;
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+}
+
+/* Markdown Styles for the Chat Bubbles */
+.prose p {
+    margin-bottom: 0.8em;
+}
+.prose pre {
+    background: #1e1e1e;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    border: 1px solid #333;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.prose code {
+    font-family: monospace;
+    color: #4ade80; /* Grok Green */
+}
+.prose inline-code {
+    background: #222;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    color: #e5e7eb;
+}
+
+/* Typing Indicator Animation */
+.typing-dot {
+    width: 6px;
+    height: 6px;
+    background: #6b7280;
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
+}
+
+/* Tailwind Configuration Override */
+/* This is a trick to configure Tailwind when using CDN */
+:root {
+    --color-grok-black: #000000;
+}
